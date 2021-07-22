@@ -4,7 +4,9 @@ node {
   stage("Cleanup") {
     env.JAVA_HOME = "${tool 'jdk'}"
 withMaven {
-      sh "mvn clean verify"
+   withMaven(maven:'Maven_3_3_9') {
+      sh 'mvn clean install'
+  }
     }
 
 
