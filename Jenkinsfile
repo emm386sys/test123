@@ -9,13 +9,15 @@ tools {
 }
 
 
+node{
+env.JAVA_HOME="${tool 'jdk'}"
 
     stages {
         stage('Cleanup') { 
             steps {
-env.JAVA_HOME="${tool 'jdk'}"
       sh "mvn clean"
             }
         }
     }
+}
 }
