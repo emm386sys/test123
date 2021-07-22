@@ -3,7 +3,9 @@ pipeline {
     stages {
         stage('Cleanup') { 
             steps {
-                sh 'mvn clean ' 
+ withMaven {
+      sh "mvn clean y"
+    } 
             }
         }
     }
