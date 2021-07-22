@@ -10,7 +10,7 @@ pipeline {
 
   stages {
     stage('Cleanup') {
-      node('master) {
+      node('master') {
 env.JAVA_HOME = "${tool 'jdk'}"
 
           sh "mvn clean"
