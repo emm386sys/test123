@@ -2,12 +2,11 @@
 pipeline {
     agent any
     tools {
-        maven 'maven' 
+        maven 'apache-maven-$env.MVN_VERSION' 
     }
     stages {
         stage('Example') {
             steps {
-		print(env.MVN_VERSION)
                 sh 'mvn clean'
             }
         }
