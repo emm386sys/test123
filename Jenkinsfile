@@ -1,16 +1,14 @@
-node {
-tools{
-maven 'maven'
-}
 
-  env.JAVA_HOME = "${tool 'jdk'}"
-  stage("Cleanup") {
-    env.JAVA_HOME = "${tool 'jdk'}"
-
-withMaven(maven : 'apache-maven-3.6.1'){
-      sh 'mvn clean install'
-  }
+pipeline {
+    agent any
+    tools {
+        maven 'maven' 
     }
-
-
-  }
+    stages {
+        stage('Example') {
+            steps {
+                sh 'mvn --version'
+            }
+        }
+    }
+}
