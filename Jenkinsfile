@@ -1,5 +1,6 @@
 pipeline {
 
+node(master){
 tools {
     maven 'maven'
     jdk 'jdk'
@@ -17,4 +18,5 @@ print env.JAVA_HOME
             }
         }
     }
+}
 }
