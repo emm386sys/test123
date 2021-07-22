@@ -1,20 +1,10 @@
-pipeline {
+node {
+  env.JAVA_HOME = "${tool 'jdk'}"
+  stage("Cleanup") {
+    env.JAVA_HOME = "${tool 'jdk'}"
 
-  agent any
+    sh "mvn clean"
 
-  tools {
-    maven 'maven'
-    jdk 'jdk'
-    dockerTool 'docker'
   }
 
-  stages {
-    stage('Cleanup') {
-      node('master') {
-env.JAVA_HOME = "${tool 'jdk'}"
-
-          sh "mvn clean"
-      }
-    }
-  }
 }
