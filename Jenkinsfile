@@ -1,4 +1,7 @@
 node {
+tools{
+maven 'maven'
+}
 
   env.JAVA_HOME = "${tool 'jdk'}"
   stage("Cleanup") {
